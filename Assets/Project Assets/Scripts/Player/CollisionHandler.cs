@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    #region Variables
     [SerializeField]
     private int _levelLoadDelay;
     [SerializeField]
@@ -21,6 +22,9 @@ public class CollisionHandler : MonoBehaviour
     private bool _isTransitioning = false;
     private bool _collisionDisabled = false;
 
+    #endregion
+
+    #region Lifecycle
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -31,6 +35,9 @@ public class CollisionHandler : MonoBehaviour
         RespondToDebugKeys();
     }
 
+    #endregion
+
+    #region OnCollisionEnter
     private void OnCollisionEnter(Collision collision)
     {
         if(_isTransitioning || _collisionDisabled) { return; }
@@ -52,6 +59,9 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Private
     private void StartCrachSequence()
     {
         
@@ -92,6 +102,8 @@ public class CollisionHandler : MonoBehaviour
         }
         SceneManager.LoadScene(nextSceneindex);
     }
+
+    #endregion
 
     #region Debug
 
