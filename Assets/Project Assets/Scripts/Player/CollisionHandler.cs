@@ -98,7 +98,7 @@ public class CollisionHandler : MonoBehaviour
         int nextSceneindex = currentSceneIndex + 1;
         if(nextSceneindex == SceneManager.sceneCountInBuildSettings)
         {
-            nextSceneindex = 0;
+            nextSceneindex = 1;
         }
         SceneManager.LoadScene(nextSceneindex);
     }
